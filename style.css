@@ -1,0 +1,72 @@
+#uno {
+background-image: url("images/1.jpg");	
+background-repeat: no-repeat;
+}
+	
+#dos {
+background-image: url("images/2.jpg");	
+background-repeat: no-repeat;
+}
+
+#tres {
+background-image: url("images/3.jpg");	
+background-repeat: no-repeat;
+}
+
+#cuatro {
+background-image: url("images/4.jpg");	
+background-repeat: no-repeat;
+}
+
+#cinco {
+background-image: url("images/5.jpg");	
+background-repeat: no-repeat;
+}
+
+#gallery-wrap {
+position: relative;
+overflow: hidden;
+border: 5px solid ;
+-webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+border-radius: 5px;
+}
+
+#gallery-wrap, #gallery-controls {
+margin: 0 auto;	
+}
+
+.pic {
+width:640px;
+height:480px;	
+float:left;
+margin: 0;
+padding: 0;		
+}
+
+#gallery-controls {
+opacity: 0.6;
+position: absolute;
+}
+
+#gallery-prev {
+float:left;	
+margin: .5em 0 0 .5em;
+width:24px;
+height:24px;
+background-image: url("img/prev.png");
+background-repeat: no-repeat;
+}
+
+#gallery-next {
+float:right;	
+margin: .5em .5em 0 0;
+width:24px;
+height:24px;
+background-image: url("img/next.png");
+background-repeat: no-repeat;
+}
+
+.clear {
+clear: both;	
+}
