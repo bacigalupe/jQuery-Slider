@@ -1,43 +1,53 @@
 $(document).ready(function(){
 
 // variables
-var totalImages = $("#gallery > div").length;
-var imageWidth = $("#gallery > div:first").outerWidth(true);
-var imageHeight = $("#gallery > div:first").outerHeight(true);
-var controls = imageHeight/2;
+var totalImages = $("#gallery > img").length;
+var imageWidth = $("#gallery > img:first").outerWidth(true);
+var imageHeight = $("#gallery > img:first").outerHeight(true);
+var controlsHeight = imageHeight/2;
 var totalWidth = imageWidth * totalImages;
-var begin = "0px";
-var end = -1 * (totalWidth - imageWidth);
-var speedFade = 500;
-var speedSlide = 1000;
+var first = '0px';
+var second = -1 * imageWidth;
+var last = -1 * (totalWidth - imageWidth);
+var penultimate = -1 * (totalWidth - 2 * imageWidth);
+var velocidadFade = 500;
+var velocidadSlide = 1000;
+var efectoEasing = 'easeOutBack'; // http://easings.net/es
 
 // CSS
 $("#gallery").width(totalWidth);
-$("#gallery-controls").width(imageWidth).css('bottom',controls+'px');
+$("#gallery-controls").width(imageWidth).css('bottom',controlsHeight+'px');
 $("#gallery-wrap").width(imageWidth).height(imageHeight);
+$("#caption").width(imageWidth);
 
-// fadeIn y fadeOut controles
+// fadeIn & fadeOut controles
 $("#gallery-wrap").hover(function(){
-	$("#gallery-controls").fadeIn(speedFade);
+	$("#gallery-controls").fadeIn(velocidadFade);
 }, function(){
-	$("#gallery-controls").fadeOut(speedFade);
+	$("#gallery-controls").fadeOut(velocidadFade);
 	});
 
-// animacion slider fotos
+// mostrar texto caption
+
+// animacion fotos: slide & shake
 $("#gallery-next").click(function(){
-	if ($("#gallery").css('marginLeft') != end+'px' && !$("#gallery").is(":animated")){
-			$("#gallery").animate({
-				marginLeft: "-="+imageWidth				
-				}, speedSlide);
+	if ($("#gallery").css('marginLeft') != last+'px' && !$("#gallery").is(":animated")){
+			if ($("#gallery").css('marginLeft') == penultimate+'px' && !$("#gallery").is(":animated")){
+				$("#gallery").animate({marginLeft: "-="+imageWidth}, velocidadSlide, 'easeOutExpo'); 
+			} else {
+				$("#gallery").animate({marginLeft: "-="+imageWidth}, velocidadSlide, efectoEasing);
+			}
 		} 
 	});
 
 $("#gallery-prev").click(function(){
-	if ($("#gallery").css('marginLeft') != begin && !$("#gallery").is(":animated")){
-			$("#gallery").animate({
-				marginLeft: "+="+imageWidth				
-				}, speedSlide);
+	if ($("#gallery").css('marginLeft') != first && !$("#gallery").is(":animated")){
+		if ($("#gallery").css('marginLeft') == second+'px' && !$("#gallery").is(":animated")){
+			$("#gallery").animate({marginLeft: "+="+imageWidth}, velocidadSlide, 'easeOutExpo');
+		} else {
+			$("#gallery").animate({marginLeft: "+="+imageWidth}, velocidadSlide, efectoEasing);
 		}	
+	}
 	});
 	
 });

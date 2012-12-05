@@ -1,28 +1,3 @@
-#uno {
-background-image: url("images/1.jpg");	
-background-repeat: no-repeat;
-}
-	
-#dos {
-background-image: url("images/2.jpg");	
-background-repeat: no-repeat;
-}
-
-#tres {
-background-image: url("images/3.jpg");	
-background-repeat: no-repeat;
-}
-
-#cuatro {
-background-image: url("images/4.jpg");	
-background-repeat: no-repeat;
-}
-
-#cinco {
-background-image: url("images/5.jpg");	
-background-repeat: no-repeat;
-}
-
 #gallery-wrap {
 position: relative;
 overflow: hidden;
@@ -48,7 +23,10 @@ padding: 0;
 opacity: 0.6;
 position: absolute;
 }
-
+#caption {
+margin: 1em auto;
+text-align: center;	
+	}
 #gallery-prev {
 float:left;	
 margin: .5em 0 0 .5em;
